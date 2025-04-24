@@ -1,6 +1,7 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
 
 const Login = () => {
     const [username, setUsername] = useState("")
@@ -8,6 +9,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [errorMessage, setErrorMessage] = useState()
     const nav = useNavigate();
+    const {authenticateUser} = useContext(AuthContext)
 
     //function to send a POST to login a user in the DB
     function handleLogin(event) {
@@ -17,6 +19,10 @@ const Login = () => {
             .post(`${import.meta.env.VITE_API_URL}/auth/login`, userToLogin)
             .then((res) => {
                 console.log("user login in the DB", res.data)
+                localStorage.setItem("authToken", res.data.authToken)
+                return authenticateUser()
+            })
+            .then(()=>{
                 nav("/profile");
             })
             .catch((err) => {
