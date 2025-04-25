@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import ProfilePage from './pages/ProfilePage'
 import AllArtwork from './pages/AllArtwork'
 import Footer from './components/Footer'
+import ProtectedRoutes from './components/ProtectedRoutes'
 
 
 function App() {
@@ -19,7 +20,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoutes>
+              <ProfilePage />
+            </ProtectedRoutes>
+            }
+            />
         <Route path="/artwork/all" element={<AllArtwork />} />
       </Routes>
      <Footer />
