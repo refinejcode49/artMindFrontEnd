@@ -6,13 +6,10 @@ const ArtworkContext = createContext();
 
 const ArtworkContextWrapper = ( {children} ) => {
     const [artworks, setArtworks] = useState([]);
+    const [dailyArtwork, setDailyArtwork] = useState(null)
     const nav = useNavigate();
 
     useEffect(()=>{
-        getAllArtworks();
-    }, []);
-
-    function getAllArtworks(){
         axios.get(`${import.meta.env.VITE_API_URL}/artwork/all`)
         .then((res)=>{
             console.log("all the artworks", res);
@@ -21,10 +18,19 @@ const ArtworkContextWrapper = ( {children} ) => {
         .catch((err) => {
             console.log(err)
         });
-    }
+        axios.get(`${import.meta.env.VITE_API_URL}/artwork/daily`)
+            .then((response)=>{
+                console.log("the daily artwork of today: ", response);
+                setDailyArtwork(response.data)
+            })
+            .catch((err)=>{
+                console.log(err)
+            });
+    }, []);
+
 
   return (
-    <ArtworkContext.Provider value={{artworks, setArtworks}}>
+    <ArtworkContext.Provider value={{artworks, setArtworks, dailyArtwork, setDailyArtwork}}>
             {children}
     </ArtworkContext.Provider>
     )
