@@ -1,8 +1,9 @@
+import axios from 'axios';
 import React, { useEffect } from 'react'
 
 const FavoritesArtwork = () => {
     useEffect(()=>{
-        axios.post(`${import.meta.env.VITE_API_URL}/fav/favorite`, { artworkId: artwork._id })
+        axios.post(`${import.meta.env.VITE_API_URL}/fav/favorite`)
             .then((res) => {
             console.log("Saved to favorites:", res.data);
   })

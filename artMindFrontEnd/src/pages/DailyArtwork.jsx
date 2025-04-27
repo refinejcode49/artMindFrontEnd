@@ -15,7 +15,7 @@ const DailyArtwork = () => {
     <div>
         <h2>The artwork of the day :</h2>
         <img
-              src={dailyArtwork?.imageURL}
+              src={dailyArtwork?.imageUrl}
               alt={dailyArtwork?.title}
             />
             <h3>Title: {dailyArtwork?.title}</h3>

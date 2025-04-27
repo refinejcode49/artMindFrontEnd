@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ArtworkContext = createContext();
 
 const ArtworkContextWrapper = ( {children} ) => {
     const [artworks, setArtworks] = useState([]);
-    const [dailyArtwork, setDailyArtwork] = useState(null)
+    const [dailyArtwork, setDailyArtwork] = useState(null);
+    const [artwork, setArtwork] = useState([]);
+    const { artworkId } = useParams();
     const nav = useNavigate();
 
     useEffect(()=>{
@@ -26,11 +28,20 @@ const ArtworkContextWrapper = ( {children} ) => {
             .catch((err)=>{
                 console.log(err)
             });
+
+        axios.get(`${import.meta.env.VITE_API_URL}/artwork/${artworkId}`)
+            .then((resp) =>{
+                console.log("here is one details info of this artwork ", resp)
+                setArtwork(resp.data)
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
     }, []);
 
 
   return (
-    <ArtworkContext.Provider value={{artworks, setArtworks, dailyArtwork, setDailyArtwork}}>
+    <ArtworkContext.Provider value={{artworks, setArtworks, dailyArtwork, setDailyArtwork, artwork, setArtwork}}>
             {children}
     </ArtworkContext.Provider>
     )

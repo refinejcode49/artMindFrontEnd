@@ -1,42 +1,210 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+
+
+
+
+
+
+
+.playfair-display-font {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+p {
+  font-family: "Inter", sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+}
+
+.landing-page {
+  background-image: url("https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=2208&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 3rem;
+  border-radius: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.landing-title {
+  font-size: 4rem;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 1rem;
+}
+
+.landing-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: "Inter", sans-serif;
+}
+
+.landing-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.landing-btn {
+  padding: 1rem 2rem;
+  background-color: #b2a4ff;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.landing-btn:hover {
+  background-color: #9b89ff;
+}
+
+.landing-btn.secondary {
+  background-color: transparent;
+  border: 2px solid #b2a4ff;
+  color: #b2a4ff;
+}
+
+.landing-btn.secondary:hover {
+  background-color: #b2a4ff;
+  color: black;
+}
+
+
+.all-artwork-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.artwork-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.artwork-card img:hover {
+  transform: scale(1.05);
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signup-page {
+  max-width: 450px;
+  margin: 60px auto;
+  padding: 40px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.9));
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 2px solid #ffffff90;
+  text-align: center;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .signup-page h3 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 700;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .signup-page label {
+  display: block;
+  text-align: left;
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 6px;
+  margin-top: 15px;
+  font-weight: 600;
   }
-}
+  
+  .signup-page input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  font-size: 16px;
+  transition: 0.2s;
+  }
+  
+  .signup-page input:focus {
+  outline: none;
+  border-color: #00c4ff;
+  box-shadow: 0 0 6px rgba(0, 196, 255, 0.5);
+  }
+  
+  .signup-page button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  }
+  
+  .signup-page button:hover {
+  background: linear-gradient(135deg, #f93fc2, #4a3bf0);
+  }
+  
+  .signup-page p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: black;
+  }
+  
+  .signup-page a {
+  color: #6c00ff;
+  font-weight: 600;
+  text-decoration: none;
+  }
+  
+  .signup-page a:hover {
+  text-decoration: underline;
+  }
+  
+  .signup-page .error {
+  color: #d8000c;
+  background-color: #ffd2d2;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  

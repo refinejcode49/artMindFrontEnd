@@ -8,6 +8,8 @@ import ProfilePage from './pages/ProfilePage'
 import AllArtwork from './pages/AllArtwork'
 import Footer from './components/Footer'
 import ProtectedRoutes from './components/ProtectedRoutes'
+import DailyArtwork from './pages/DailyArtwork'
+import ArtworkDetailsPage from './pages/ArtworkDetailsPage'
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
             }
             />
         <Route path="/artwork/all" element={<AllArtwork />} />
+        <Route path="/daily-artwork" element={<DailyArtwork />} />
+        <Route path="/artwork/:artworkId" element={<ArtworkDetailsPage />} />
       </Routes>
      <Footer />
     </>
