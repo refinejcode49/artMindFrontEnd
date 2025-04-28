@@ -17,6 +17,7 @@ const DailyArtwork = () => {
         <img
               src={dailyArtwork?.imageUrl}
               alt={dailyArtwork?.title}
+              className="artwork-image"
             />
             <h3>Title: {dailyArtwork?.title}</h3>
             <h3>Artist: {dailyArtwork?.artist_display}</h3>

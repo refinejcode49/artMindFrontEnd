@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 
 const Navbar = () => {
-  const {isLoggedIn, handleLogout} = useContext(AuthContext)
+  const {currentUser, isLoggedIn, handleLogout} = useContext(AuthContext)
+
+  //console.log("Is Logged In:", isLoggedIn);
+  //console.log("Current User:", currentUser);
+  console.log("Profile Image URL:", currentUser?.profileImage);
   return (
     <nav className="navbar">
         <Link to="/">
@@ -22,7 +26,10 @@ const Navbar = () => {
         </>}
 
         {/*ternary to show the profilePage btn if the user is logged in*/}
-        {isLoggedIn ? <Link to="/profile"><button>Profile Page</button></Link> : <>
+        {isLoggedIn ? <Link to="/edit-account"><img
+            src={currentUser.profileImage}
+            alt="Profile-image"  
+          /></Link> : <>
           <Link to="/signup">
             <button>Sign up</button>
         </Link>

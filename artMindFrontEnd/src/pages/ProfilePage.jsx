@@ -12,6 +12,7 @@ const ProfilePage = () => {
   return (
     <div className="profile-page">
       <h2>Welcome, {currentUser.username} !</h2>
+      
 
           <Link to="/daily-artwork" className="landing-btn">
             Découvrir l'œuvre du jour

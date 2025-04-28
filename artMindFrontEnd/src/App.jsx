@@ -10,13 +10,13 @@ import Footer from './components/Footer'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import DailyArtwork from './pages/DailyArtwork'
 import ArtworkDetailsPage from './pages/ArtworkDetailsPage'
+import EditAccount from './pages/EditAccount'
 
 
 function App() {
 
   return (
     <>
-     <h1>ARTMIND FRONT END</h1>
      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -27,6 +27,14 @@ function App() {
           element={
             <ProtectedRoutes>
               <ProfilePage />
+            </ProtectedRoutes>
+            }
+            />
+            <Route 
+          path="/edit-account" 
+          element={
+            <ProtectedRoutes>
+              <EditAccount />
             </ProtectedRoutes>
             }
             />

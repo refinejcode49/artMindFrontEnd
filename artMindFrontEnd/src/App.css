@@ -1,4 +1,8 @@
-
+body {
+  background-color: #0e0e0e;
+  color: #f5f5f5;
+ 
+}
 
 
 
@@ -207,4 +211,90 @@ h1, h2, h3 {
   font-weight: bold;
   }
 
+
+  .all-artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .artwork-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .artwork-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .artwork-hover {
+    position: absolute;
+    inset: 0;
+    background: #c200fb;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .artwork-item:hover .artwork-image {
+    opacity: 0;
+  }
+  
+  .artwork-item:hover .artwork-hover {
+    opacity: 1;
+  }
+  
+
+
+
+
+
+
+/*RESPONSIVE STYLES*/
+  @media (max-width: 768px) {
+    .artwork-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+  
+    .artwork-hover h3 {
+      font-size: 1rem;
+    }
+  
+    .artwork-hover p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .artwork-grid {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.8rem;
+      padding: 0.5rem;
+    }
+  
+    .artwork-hover h3 {
+      font-size: 0.9rem;
+    }
+  
+    .artwork-hover p {
+      font-size: 0.8rem;
+    }
+  }
   
