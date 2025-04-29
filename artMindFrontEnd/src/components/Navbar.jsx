@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 
-const Navbar = () => {
+const Navbar = ( { toggleDarkMode, isDarkMode }) => {
   const {currentUser, isLoggedIn, handleLogout} = useContext(AuthContext)
-
+  
   //console.log("Is Logged In:", isLoggedIn);
   //console.log("Current User:", currentUser);
-  console.log("Profile Image URL:", currentUser?.profileImage);
+  //console.log("Profile Image URL:", currentUser?.profileImage);
   return (
     <nav className="navbar">
         <Link to="/">
@@ -15,17 +15,22 @@ const Navbar = () => {
         </Link>
 
         {/*ternary to show the sign up and login btn if the user is not logged in*/}
-        {isLoggedIn ? <button onClick={handleLogout}>Logout</button> : <>
+        {isLoggedIn ? <button className="navbar-btn" onClick={handleLogout}>Logout</button> : <>
           <Link to="/signup">
-            <button>Sign up</button>
+            <button className="navbar-btn">Sign up</button>
         </Link>
         <Link to="/login">
-            <button>Login</button>
+            <button className="navbar-btn secondary">Login</button>
         </Link>
                 
         </>}
 
-        {/*ternary to show the profilePage btn if the user is logged in*/}
+        {/*button to toggle dark mode*/}
+        <button onClick={toggleDarkMode} className="light-mode-toggle">
+                    {isDarkMode ? " ☀️ " : " 🌙 "}
+        </button>
+                
+        {/*{/*ternary to show the profilePage btn if the user is logged in
         {isLoggedIn ? <Link to="/edit-account"><img
             src={currentUser.profileImage}
             alt="Profile-image"  
@@ -37,7 +42,7 @@ const Navbar = () => {
             <button>Login</button>
         </Link>
                 
-        </>}
+        </>}*/}
     </nav>
   )
 }

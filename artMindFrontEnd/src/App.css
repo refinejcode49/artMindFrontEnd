@@ -31,6 +31,55 @@ h1, h2, h3 {
   font-family: "Playfair Display", serif;
 }
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0e0e0e;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.navbar-btn {
+  padding: 1rem 2rem;
+  background-color: #b2a4ff;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-btn:hover {
+  background-color: #9b89ff;
+}
+
+.navbar-btn.secondary {
+  background-color: transparent;
+  border: 2px solid #b2a4ff;
+  color: #b2a4ff;
+}
+
+.navbar-btn.secondary:hover {
+  background-color: #b2a4ff;
+  color: black;
+}
+
+.light-mode-toggle {
+  padding: 1rem 2rem;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
 .landing-page {
   background-image: url("https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=2208&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
@@ -114,13 +163,6 @@ h1, h2, h3 {
 
 .artwork-card img:hover {
   transform: scale(1.05);
-}
-
-.navbar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .signup-page {
@@ -235,6 +277,15 @@ h1, h2, h3 {
     border-radius: 12px;
   }
 
+  .artwork-details-image {
+    width: 50%;
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
   .artwork-hover {
     position: absolute;
     inset: 0;
@@ -259,6 +310,14 @@ h1, h2, h3 {
     opacity: 1;
   }
   
+  .artwork-detail-page {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease;
+    object-fit: cover;
+    border-radius: 12px;
+  }
 
 
 

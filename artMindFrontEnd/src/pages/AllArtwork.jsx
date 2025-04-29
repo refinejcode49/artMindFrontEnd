@@ -18,7 +18,7 @@ const AllArtwork = () => {
         return (
          
           <div key={oneArtwork._id} className="artwork-item">
-             <Link to="/artwork/{artworkId}">
+             <Link to={`/artwork/${oneArtwork._id}`}>
             <img
               src={oneArtwork.imageUrl}
               alt={oneArtwork.title}
@@ -30,16 +30,7 @@ const AllArtwork = () => {
               <h3>Description:{oneArtwork.short_description}</h3>
             </div>
             </Link>
-            {/*oneArtwork.owner._id === currentUser?._id ? (
-              <section>
-                <Link to={`/edit-artwork/${oneArtwork._id}`}>
-                  <button>Edit</button>
-                </Link>
-                <button onClick={() => handleDeleteArtwork(oneArtwork._id)}>
-                  Delete
-                </button>
-              </section>
-            ) : null*/}
+            
           </div>
         );
       })}
