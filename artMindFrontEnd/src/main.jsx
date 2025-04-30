@@ -4,7 +4,7 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthContextWrapper } from './context/AuthContext.jsx'
 import { ArtworkContextWrapper } from './context/ArtworkContext.jsx'
-import { FavoritesContext } from './context/FavoritesContext.jsx'
+import { FavoritesContextWrapper } from './context/FavoritesContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -12,9 +12,9 @@ createRoot(document.getElementById('root')).render(
    <BrowserRouter>
       <AuthContextWrapper>
         <ArtworkContextWrapper>
-          <FavoritesContext>
+          <FavoritesContextWrapper>
             <App />
-          </FavoritesContext>
+          </FavoritesContextWrapper>
         </ArtworkContextWrapper>
       </AuthContextWrapper>
     </BrowserRouter>
