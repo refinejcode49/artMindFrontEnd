@@ -7,7 +7,7 @@ const Home = () => {
       <div className="overlay">
         <h1 className="landing-title">ArtMind</h1>
         <p className="landing-subtitle">
-          Une œuvre d'art par jour pour nourrir votre esprit.
+        A work of art a day to nourish your mind.
         </p>
         <div className="landing-buttons">
           <Link to="/signup">
