@@ -1,16 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ArtworkContext } from '../context/ArtworkContext';
 import { AuthContext } from '../context/AuthContext';
+import { FavoritesContext } from '../context/FavoritesContext';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ArtworkNote from '../components/ArtworkNote';
 
+
 const ArtworkDetailsPage = () => {
     const { currentUser, authenticateUser } = useContext(AuthContext);
+    const { favorites, addFavorite, removeFavorite } = useContext(FavoritesContext)
     const [artwork, setArtwork] = useState("");
     const { artworkId } = useParams();
     const [notes, setNotes] = useState([]);
 
+    const isFavorite = favorites.some((fav) => fav.artwork._id === artwork._id);
+
+  const handleClick = () => {
+    if (isFavorite) {
+      removeFavorite(artwork._id);
+    } else {
+      addFavorite(artwork._id);
+    }
+  };
 
     useEffect(() => {
       axios
@@ -23,7 +35,8 @@ const ArtworkDetailsPage = () => {
           console.log("Error fetching artwork", err);
         });
     }, [artworkId]);
-  
+
+   
      // Fetch notes for the artwork
   const getNotesForArtwork = async () => {
     const storedToken = localStorage.getItem("authToken");
@@ -79,25 +92,6 @@ const ArtworkDetailsPage = () => {
     }
   };
 
-  const saveFavorite = async (artworkId) => {
-    const storedToken = localStorage.getItem("authToken");
-  
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/fav/favorite`,
-        { artworkId },
-        {
-          headers: {
-            Authorization: `Bearer ${storedToken}`,
-          },
-        }
-      );
-  
-      console.log("Saved to favorites:", response.data);
-    } catch (err) {
-      console.error("Error saving favorite:", err);
-    }
-  };
 
 
   useEffect(() => {
@@ -117,7 +111,11 @@ const ArtworkDetailsPage = () => {
         <h3>Artist: {artwork.artist_display}</h3>
         <h3>Description: {artwork.short_description}</h3>
 
-        <button onClick={() => saveFavorite(artwork._id)}>💖 Save</button>
+        <button onClick={handleClick}>
+          {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+        </button>
+
+
         {/* Render notes */}
       <section className="artwork-notes">
         <h3>Notes:</h3>
