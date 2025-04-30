@@ -19,7 +19,7 @@ const ArtworkContextWrapper = ( {children} ) => {
         .catch((err) => {
             console.log(err)
         });
-        axios.get(`${import.meta.env.VITE_API_URL}/artwork/daily`)
+        axios.get(`${import.meta.env.VITE_API_URL}/artwork/daily-artwork`)
             .then((response)=>{
                 console.log("the daily artwork of today: ", response);
                 setDailyArtwork(response.data)

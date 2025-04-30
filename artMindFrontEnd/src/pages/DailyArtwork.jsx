@@ -7,9 +7,7 @@ const DailyArtwork = () => {
     const { dailyArtwork } = useContext(ArtworkContext);
     const { currentUser } = useContext(AuthContext);
 
-    if (!dailyArtwork){
-        return <p>Loading the daily artwork... </p>
-    }
+    
 
   return (
     <div>
